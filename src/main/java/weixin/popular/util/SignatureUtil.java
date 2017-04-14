@@ -68,7 +68,12 @@ public class SignatureUtil {
 			}
 			return null;
 		}else{//default MD5
-			return DigestUtils.md5Hex((str+"&key="+paternerKey).getBytes("UTF-8")).toUpperCase();
+			try {
+				return DigestUtils.md5Hex((str+"&key="+paternerKey).getBytes("UTF-8")).toUpperCase();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return null;
 		}
 	}
 	
